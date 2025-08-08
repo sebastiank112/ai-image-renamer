@@ -3,17 +3,11 @@ set -euo pipefail
 
 APP_NAME="AI Image Renamer"
 INSTALL_DIR="$HOME/Applications/AI-Image-Renamer"
-PYTHON_BIN="$(/usr/bin/env python3)"
 
-echo "Installing $APP_NAME..."
-
-mkdir -p "$INSTALL_DIR/src"
-cp "ai_image_renamer.py" "$INSTALL_DIR/src/"
-[ -f "auto_updater.py" ] && cp "auto_updater.py" "$INSTALL_DIR/src/" || true
-[ -f "README.txt" ] && cp "README.txt" "$INSTALL_DIR/" || true
-[ -f "requirements.txt" ] && cp "requirements.txt" "$INSTALL_DIR/" || true
-
-if [ ! -x "$PYTHON_BIN" ]; then
+# Find Python 3
+if command -v python3 >/dev/null 2>&1; then
+  PYTHON_BIN="$(command -v python3)"
+else
   echo "Python 3 not found. Install it from https://www.python.org/downloads/ and re-run."
   exit 1
 fi
