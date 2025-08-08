@@ -659,7 +659,7 @@ def run_job(txt_log, btn_run, progress, values):
             args_dict["emphasize_location"] = values["emphasize_location"]
             args_dict["csv"] = values["csv"]
             args_dict["dry_run"] = values["dry_run"]
-            args_dict["filename_from_alt"] = values["filename_from_alt"]
+            args_dict["filename_from_alt"] = values.get("filename_from_alt", False)
             
             txt_log.insert(tk.END, f"Starting image processing...\n")
             txt_log.insert(tk.END, f"Arguments: {args_dict}\n\n")
