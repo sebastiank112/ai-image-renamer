@@ -8,3 +8,6 @@ dist/
 temp_releases/
 .ai_renamer.env
 *.env
+
+# Releases
+AI_Image_Renamer_Mac_v*.zip
